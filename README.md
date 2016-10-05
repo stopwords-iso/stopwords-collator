@@ -14,7 +14,17 @@ It does the following:
 - Strip BOMs
 - Strip duplicates
 - Strip whitespaces
-- Split tabbed words
+- Split tab separated words
+- Sort final result
+
+### Command Line
+The following command line options are supported:
+- `-s <path>` - Directory of the stopwords text files (.txt)
+- `-o <path>` - filename and path to output file.
+
+```sh
+$ stopwords-collator -s raw -o lib/stopwords
+```
 
 ### Contributing
 * Include 100% test coverage.
