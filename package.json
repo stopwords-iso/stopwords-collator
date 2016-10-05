@@ -8,6 +8,9 @@
   "repository": "git://github.com/stopwords-iso/stopwords-collator",
   "bugs": "https://github.com/stopwords-iso/stopwords-collator/issues",
   "main": "lib/index.js",
+  "bin": {
+    "stopwords-collator": "./bin/stopwords-collator"
+  },
   "engines": {
     "node": ">=4.0.0"
   },
