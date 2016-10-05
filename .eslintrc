@@ -8,6 +8,14 @@
   },
   "globals": {},
   "rules": {
+    "new-cap": [
+      2,
+      {
+        "capIsNewExceptions": [
+          "Proxyquire"
+        ]
+      }
+    ],
     "strict": [
       2,
       "global"
@@ -32,7 +40,6 @@
     "curly": 2,
     "indent": 2,
     "eqeqeq": 2,
-    "new-cap": 2,
     "eol-last": 2,
     "use-isnan": 2,
     "wrap-iife": 2,

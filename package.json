@@ -15,6 +15,7 @@
     "test": "lab -c -v -L -a code"
   },
   "devDependencies": {
+    "proxyquire": "1.7.x",
     "coveralls": "2.11.x",
     "code": "4.0.x",
     "lab": "11.1.x"
