@@ -14,6 +14,11 @@
   "scripts": {
     "test": "lab -c -v -L -a code"
   },
+  "dependencies": {
+    "bossy": "3.0.x",
+    "items": "2.1.x",
+    "itlog": "0.1.x"
+  },
   "devDependencies": {
     "proxyquire": "1.7.x",
     "coveralls": "2.11.x",
