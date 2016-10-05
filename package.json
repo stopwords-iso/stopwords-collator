@@ -1,0 +1,22 @@
+{
+  "name": "stopwords-collator",
+  "version": "0.1.0",
+  "author": "Gene Diaz <genediazjr@gmail.com> (http://genediazjr.com)",
+  "description": "Organize raw stopwords into a JSON and a text file.",
+  "keywords": ["stopwords collator"],
+  "license": "MIT",
+  "repository": "git://github.com/stopwords-iso/stopwords-collator",
+  "bugs": "https://github.com/stopwords-iso/stopwords-collator/issues",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "lab -c -v -L -a code"
+  },
+  "devDependencies": {
+    "coveralls": "2.11.x",
+    "code": "4.0.x",
+    "lab": "11.1.x"
+  }
+}
