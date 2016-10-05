@@ -128,7 +128,6 @@
     "no-sparse-arrays": 2,
     "no-return-assign": 2,
     "no-unsafe-finally": 2,
-    "no-param-reassign": 2,
     "no-invalid-regexp": 2,
     "no-negated-in-lhs": 2,
     "no-trailing-spaces": 2,
