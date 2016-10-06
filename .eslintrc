@@ -1,6 +1,10 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
   "env": {
-    "node": true
+    "node": true,
+    "es6": true
   },
   "globals": {},
   "rules": {
@@ -88,6 +92,7 @@
         "named": "never"
       }
     ],
+    "no-var": 2,
     "no-eval": 2,
     "no-with": 2,
     "no-void": 2,
