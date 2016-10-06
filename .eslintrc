@@ -92,7 +92,6 @@
         "named": "never"
       }
     ],
-    "no-var": 2,
     "no-eval": 2,
     "no-with": 2,
     "no-void": 2,

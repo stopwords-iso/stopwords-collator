@@ -1,16 +1,16 @@
 'use strict';
 
-const Proxyquire = require('proxyquire');
-const Code = require('code');
-const Lab = require('lab');
+var Proxyquire = require('proxyquire');
+var Code = require('code');
+var Lab = require('lab');
 
-const lab = exports.lab = Lab.script();
-const beforeEach = lab.beforeEach;
-const describe = lab.describe;
-const it = lab.it;
-const expect = Code.expect;
+var lab = exports.lab = Lab.script();
+var beforeEach = lab.beforeEach;
+var describe = lab.describe;
+var it = lab.it;
+var expect = Code.expect;
 
-const internals = { stub: { fs: {} } };
+var internals = { stub: { fs: {} } };
 
 internals.stub.fs.readdir = function (path, next) {
 
