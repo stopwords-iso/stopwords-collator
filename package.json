@@ -12,7 +12,7 @@
     "stopwords-collator": "./bin/stopwords-collator"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "lab -c -v -L -a code"
