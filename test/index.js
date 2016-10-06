@@ -63,8 +63,7 @@ d
 c	a
     the
 The
-is
-iS`;
+is	iS`;
 
     return done();
 });
