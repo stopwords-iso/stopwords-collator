@@ -61,7 +61,10 @@ stopword
  
 d
 c	a
-    `;
+    the
+The
+is
+iS`;
 
     return done();
 });
@@ -125,8 +128,8 @@ describe('start()', () => {
 
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
 
-        expect(internals.data[0]).to.equal('a\nb\nc\nd\nstopword');
-        expect(internals.data[1]).to.equal('["a","b","c","d","stopword"]');
+        expect(internals.data[0]).to.equal('a\nb\nc\nd\nis\nstopword\nthe');
+        expect(internals.data[1]).to.equal('["a","b","c","d","is","stopword","the"]');
         expect(internals.messages[internals.messages.length - 1]).to.equal(':: collation complete');
 
         return done();
