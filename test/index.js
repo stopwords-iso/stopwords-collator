@@ -123,12 +123,20 @@ describe('start()', () => {
         return done();
     });
 
-    it('collates', (done) => {
+    it('collates with -s and -o', (done) => {
 
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
 
         expect(internals.data[0]).to.equal('a\nb\nc\nd\nis\nstopword\nthe');
         expect(internals.data[1]).to.equal('["a","b","c","d","is","stopword","the"]');
+        expect(internals.messages[internals.messages.length - 1]).to.equal(':: collation complete');
+
+        return done();
+    });
+
+    it('collates with -i', (done) => {
+
+        internals.collator.start({ args: ['-i'] });
         expect(internals.messages[internals.messages.length - 1]).to.equal(':: collation complete');
 
         return done();
