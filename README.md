@@ -16,6 +16,7 @@ It does the following:
 - Strip whitespaces
 - Split tab separated words
 - Sort final result
+- Ignore lines starting with `#`
 
 ### Command Line
 The following command line options are supported:
