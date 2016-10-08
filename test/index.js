@@ -44,10 +44,9 @@ internals.stub.itlog = function (message) {
     return;
 };
 
-internals.collator = Proxyquire('..', internals.stub);
-
 beforeEach((done) => {
 
+    internals.collator = Proxyquire('..', internals.stub);
     internals.readdirErr = null;
     internals.readFileErr = null;
     internals.writeFileTxtErr = null;
