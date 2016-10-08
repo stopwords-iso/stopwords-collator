@@ -119,6 +119,9 @@ describe('start()', () => {
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[3]).to.contain(':: saving json error -');
 
+        internals.collator.start({ args: ['-i'] });
+        expect(internals.messages[internals.messages.length - 1]).to.contain(':: saving json error -');
+
         return done();
     });
 
