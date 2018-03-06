@@ -44,7 +44,7 @@ internals.stub.itlog = function (message) {
     return;
 };
 
-beforeEach((done) => {
+beforeEach(() => {
 
     internals.collator = Proxyquire('..', internals.stub);
     internals.readdirErr = null;
@@ -63,13 +63,11 @@ c	a
     the
 The
 is	iS`;
-
-    return done();
 });
 
 describe('start()', () => {
 
-    it('returns usage info on -h or missing -s and -o', (done) => {
+    it('returns usage info on -h or missing -s and -o', () => {
 
         internals.collator.start({ args: ['-h'] });
         expect(internals.messages[0]).to.contain('Usage: stopwords-collator');
@@ -82,38 +80,30 @@ describe('start()', () => {
         internals.collator.start({ args: ['-o', 'output'] });
         expect(internals.messages[0]).to.contain('Usage: stopwords-collator');
         internals.messages = [];
-
-        return done();
     });
 
-    it('returns directory error', (done) => {
+    it('returns directory error', () => {
 
         internals.readdirErr = new Error();
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[0]).to.contain(':: directory error -');
-
-        return done();
     });
 
-    it('returns file error', (done) => {
+    it('returns file error', () => {
 
         internals.readFileErr = new Error();
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[2]).to.contain(':: file error -');
-
-        return done();
     });
 
-    it('returns txt file error', (done) => {
+    it('returns txt file error', () => {
 
         internals.writeFileTxtErr = new Error();
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[3]).to.contain(':: saving txt error -');
-
-        return done();
     });
 
-    it('returns json file error', (done) => {
+    it('returns json file error', () => {
 
         internals.writeFileJsonErr = new Error();
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
@@ -121,26 +111,20 @@ describe('start()', () => {
 
         internals.collator.start({ args: ['-i'] });
         expect(internals.messages[internals.messages.length - 1]).to.contain(':: saving json error -');
-
-        return done();
     });
 
-    it('collates with -s and -o', (done) => {
+    it('collates with -s and -o', () => {
 
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
 
         expect(internals.data[0]).to.equal('a\nb\nc\nd\nis\nstopword\nthe');
         expect(internals.data[1]).to.equal('["a","b","c","d","is","stopword","the"]');
         expect(internals.messages[internals.messages.length - 1]).to.equal(':: collation complete');
-
-        return done();
     });
 
-    it('collates with -i', (done) => {
+    it('collates with -i', () => {
 
         internals.collator.start({ args: ['-i'] });
         expect(internals.messages[internals.messages.length - 1]).to.equal(':: collation complete');
-
-        return done();
     });
 });
