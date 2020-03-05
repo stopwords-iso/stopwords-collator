@@ -1,4 +1,8 @@
-node_modules
-.idea
+*.lock
 *.log
-*.txt
+.idea
+.dropbox
+.DS_Store
+Thumbs.db
+node_modules
+Icon?
