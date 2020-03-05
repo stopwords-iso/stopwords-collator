@@ -1,8 +1,9 @@
+/* eslint no-tabs: "off" */
 'use strict';
 
 const Proxyquire = require('proxyquire');
-const Code = require('code');
-const Lab = require('lab');
+const Code = require('@hapi/code');
+const Lab = require('@hapi/lab');
 
 const lab = exports.lab = Lab.script();
 const beforeEach = lab.beforeEach;
@@ -12,36 +13,44 @@ const expect = Code.expect;
 
 const internals = { stub: { fs: {} } };
 
-internals.stub.fs.readdir = function (path, next) {
+internals.stub.fs.readdirSync = function () {
 
-    return next(internals.readdirErr, internals.list);
+    if (internals.readdirErr) {
+
+        throw new Error(internals.readdirErr);
+    }
+
+    return internals.list;
 };
 
-internals.stub.fs.readFile = function (path, encoding, next) {
+internals.stub.fs.readFileSync = function () {
 
-    return next(internals.readFileErr, internals.content);
+    if (internals.readFileErr) {
+
+        throw new Error(internals.readFileErr);
+    }
+
+    return internals.content;
 };
 
-internals.stub.fs.writeFile = function (path, data, next) {
+internals.stub.fs.writeFileSync = function (path, data) {
 
     internals.data.push(data);
 
-    if (path.endsWith('.txt')) {
+    if (path.endsWith('.txt') && internals.writeFileTxtErr) {
 
-        return next(internals.writeFileTxtErr);
+        throw new Error(internals.writeFileTxtErr);
     }
 
-    if (path.endsWith('.json')) {
+    if (path.endsWith('.json') && internals.writeFileJsonErr) {
 
-        return next(internals.writeFileJsonErr);
+        throw new Error(internals.writeFileJsonErr);
     }
 };
 
 internals.stub.itlog = function (message) {
 
     internals.messages.push(message);
-
-    return;
 };
 
 beforeEach(() => {
@@ -55,6 +64,7 @@ beforeEach(() => {
     internals.data = [];
     internals.messages = [];
     internals.content = `
+#
 stopword
  b
  
@@ -84,28 +94,28 @@ describe('start()', () => {
 
     it('returns directory error', () => {
 
-        internals.readdirErr = new Error();
+        internals.readdirErr = 'some error';
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[0]).to.contain(':: directory error -');
     });
 
     it('returns file error', () => {
 
-        internals.readFileErr = new Error();
+        internals.readFileErr = 'some error';
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[2]).to.contain(':: file error -');
     });
 
     it('returns txt file error', () => {
 
-        internals.writeFileTxtErr = new Error();
+        internals.writeFileTxtErr = 'some error';
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[3]).to.contain(':: saving txt error -');
     });
 
     it('returns json file error', () => {
 
-        internals.writeFileJsonErr = new Error();
+        internals.writeFileJsonErr = 'some error';
         internals.collator.start({ args: ['-s', 'source', '-o', 'stopwords'] });
         expect(internals.messages[3]).to.contain(':: saving json error -');
 
