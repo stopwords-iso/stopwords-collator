@@ -6,7 +6,6 @@ Stopwords Collator
 [![Code Climate](https://codeclimate.com/github/stopwords-iso/stopwords-collator/badges/gpa.svg)](https://codeclimate.com/github/stopwords-iso/stopwords-collator)
 [![Dependency Status](https://david-dm.org/stopwords-iso/stopwords-collator.svg)](https://david-dm.org/stopwords-iso/stopwords-collator)
 [![Known Vulnerabilities](https://snyk.io/test/github/stopwords-iso/stopwords-collator/badge.svg)](https://snyk.io/test/github/stopwords-iso/stopwords-collator)
-[![NSP Status](https://nodesecurity.io/orgs/stopwords-iso/projects/c0cdd92e-ce98-4701-af7b-1ad41a1ebd14/badge)](https://nodesecurity.io/orgs/stopwords-iso/projects/c0cdd92e-ce98-4701-af7b-1ad41a1ebd14)
 
 Organize raw stopwords into a JSON and a text file.
 It does the following:
@@ -28,6 +27,5 @@ $ stopwords-collator -s raw -o lib/stopwords
 ```
 
 ### Contributing
-* Include 100% test coverage.
-* Follow the [Hapi coding conventions](http://hapijs.com/styleguide)
+* Include 100% test coverage and no eslint issue.
 * Submit an issue first for significant changes.
