@@ -1,6 +1,6 @@
 {
   "name": "stopwords-collator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Gene Diaz <genediazjr@gmail.com> (http://genediazjr.com)",
   "description": "Organize raw stopwords into a JSON and a text file.",
   "keywords": ["stopwords collator"],
