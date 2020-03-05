@@ -12,20 +12,21 @@
     "stopwords-collator": "./bin/stopwords-collator"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=10"
   },
   "scripts": {
-    "test": "lab -c -v -L -a code"
+    "test": "lab -c -v -L -a @hapi/code",
+    "prepublishOnly": "npm run test"
   },
   "dependencies": {
-    "bossy": "4.0.x",
-    "items": "2.1.x",
-    "itlog": "0.2.x"
+    "itlog": "0.x",
+    "@hapi/bossy": "5.x"
   },
   "devDependencies": {
-    "proxyquire": "2.0.x",
-    "coveralls": "3.0.x",
-    "code": "5.2.x",
-    "lab": "15.3.x"
+    "@hapi/lab": "22.x",
+    "@hapi/code": "8.x",
+    "@blumoon/eslint-config-blumoon": "*",
+    "proxyquire": "2.x",
+    "coveralls": "3.x"
   }
 }
