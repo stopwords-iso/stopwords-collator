@@ -9,6 +9,7 @@ Stopwords Collator
 
 Organize raw stopwords into a JSON and a text file.
 It does the following:
+- Convert to lower case
 - Strip CRs
 - Strip BOMs
 - Strip duplicates
